@@ -1,0 +1,2 @@
+primary: {linux_path: null, mac_path: null, windows_path: 'L:\'}
+secondary: {linux_path: null, mac_path: null, windows_path: 'M:\'}

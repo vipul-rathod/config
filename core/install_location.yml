@@ -1,0 +1,10 @@
+# Shotgun Pipeline Toolkit configuration file
+# This file was automatically created by tank clone
+# This file reflects the paths in the pipeline configuration
+# entity which is associated with this location (Developer).
+
+Windows: 'N:\software\shotgun\TESTING123_sandbox'
+Darwin: ''
+Linux: ''
+
+# End of file.

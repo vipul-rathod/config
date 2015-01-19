@@ -1,0 +1,155 @@
+about:
+  location: {name: tk-multi-about, type: app_store, version: v0.1.20}
+frameworks:
+  tk-framework-qtwidgets_v1.x.x:
+    location: {name: tk-framework-qtwidgets, type: app_store, version: v1.0.1}
+  tk-framework-shotgunutils_v2.x.x:
+    location: {name: tk-framework-shotgunutils, type: app_store, version: v2.0.5}
+  tk-framework-widget_v0.1.18:
+    location: {name: tk-framework-widget, type: app_store, version: v0.1.18}
+  tk-framework-widget_v0.1.20:
+    location: {name: tk-framework-widget, type: app_store, version: v0.1.20}
+  tk-framework-widget_v0.1.23:
+    location: {name: tk-framework-widget, type: app_store, version: v0.1.23}
+  tk-framework-widget_v0.1.24:
+    location: {name: tk-framework-widget, type: app_store, version: v0.1.24}
+  tk-framework-widget_v0.2.x:
+    location: {name: tk-framework-widget, type: app_store, version: v0.2.2}
+tk-custom-loader:
+  action_mappings:
+    Maya Scene: [open, reference, import]
+    Photoshop Image: [texture_node]
+    Rendered Image: [texture_node]
+    UDIM Image: [udim_texture_node]
+  actions_hook: '{self}/tk-maya_actions.py'
+  download_thumbnails: true
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+    publish_filters: []
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+    publish_filters: []
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+    publish_filters: []
+  - caption: Masters
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+    publish_filters:
+    - [task.Task.step.Step.short_name, is_not, 'Model']
+    - [task.Task.step.Step.short_name, is_not, 'Tex']
+    - [task.Task.step.Step.short_name, is_not, 'Rig']
+  filter_publishes_hook: '{self}/filter_publishes.py'
+  location: {path: 'N:\software\shotgun\TESTING123_sandbox\install\apps\tk-custom-loader',
+    type: dev}
+  menu_name: Loader
+  assetPublishPathTemplate: maya_asset_publish
+  assetWorkPathTemplate: maya_asset_work
+  shotPublishPathTemplate: maya_shot_publish
+  shotWorkPathTemplate: maya_shot_work
+  publish_filters: []
+  title_name: Loader
+
+tk-custom-loader-launch-at-startup:
+  action_mappings:
+    Maya Scene: [open, reference, import]
+    Photoshop Image: [texture_node]
+    Rendered Image: [texture_node]
+    UDIM Image: [udim_texture_node]
+  actions_hook: '{self}/tk-maya_actions.py'
+  download_thumbnails: true
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+    publish_filters: []
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+    publish_filters: []
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+    publish_filters: []
+  - caption: Masters
+    entity_type: Assets
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+    publish_filters:
+    - [task.Task.step.Step.short_name, is_not, 'Model']
+    - [task.Task.step.Step.short_name, is_not, 'Tex']
+    - [task.Task.step.Step.short_name, is_not, 'Rig']
+  filter_publishes_hook: '{self}/filter_publishes.py'
+  location: {path: 'N:\software\shotgun\TESTING123_sandbox\install\apps\tk-custom-loader',
+    type: dev}
+  menu_name: Loader
+  assetPublishPathTemplate: maya_asset_publish
+  assetWorkPathTemplate: maya_asset_work
+  shotPublishPathTemplate: maya_shot_publish
+  shotWorkPathTemplate: maya_shot_work
+  publish_filters: []
+  title_name: Loader
+
+workfiles:
+  allow_task_creation: true
+  file_extensions: []
+  hook_copy_file: default
+  hook_filter_publishes: default
+  hook_filter_work_files: default
+  hook_scene_operation: default
+  launch_at_startup: false
+  launch_change_work_area_at_startup: false
+  location: {name: tk-multi-workfiles, type: app_store, version: v0.6.3}
+  saveas_default_name: scene
+  saveas_prefer_version_up: false
+  sg_entity_type_extra_display_fields: {}
+  sg_entity_type_filters: {}
+  sg_entity_types: [Shot, Asset]
+  sg_task_filters: []
+  task_extra_display_fields: []
+  template_publish: null
+  template_publish_area: null
+  template_work: null
+  template_work_area: null
+workfiles-launch-at-startup:
+  allow_task_creation: true
+  file_extensions: []
+  hook_copy_file: default
+  hook_filter_publishes: default
+  hook_filter_work_files: default
+  hook_scene_operation: default
+  launch_at_startup: true
+  launch_change_work_area_at_startup: false
+  location: {name: tk-multi-workfiles, type: app_store, version: v0.6.3}
+  saveas_default_name: scene
+  saveas_prefer_version_up: false
+  sg_entity_type_extra_display_fields: {}
+  sg_entity_type_filters: {}
+  sg_entity_types: [Shot, Asset]
+  sg_task_filters: []
+  task_extra_display_fields: []
+  template_publish: null
+  template_publish_area: null
+  template_work: null
+  template_work_area: null
